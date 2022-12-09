@@ -1,0 +1,10 @@
+#to describe all the information of every cluster
+  aws elasticache describe-cache-clusters
+
+#check only cluster status with parsing
+  aws elasticache describe-cache-clusters --query 'CacheClusters[].[CacheClusterId, CacheClusterStatus]' --output json
+  aws elasticache describe-cache-clusters --query 'CacheClusters[].[CacheClusterId, CacheClusterStatus]' --output table
+
+#check security group status
+  aws elasticache describe-cache-clusters --query 'CacheClusters[].SecurityGroups[].[SecurityGroupId,Status]' --output json
+  aws elasticache describe-cache-clusters --query 'CacheClusters[].SecurityGroups[].[SecurityGroupId,Status]' --output table
